@@ -15,7 +15,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/form-handler" method="post" novalidate>
+      <form action="/details" method="post" novalidate>
 
         {{ radios({
           name: "whereDoYouLive",
@@ -45,10 +45,11 @@
           ]
         }) }}
 
-        {{ button({
-          text: "Continue"
-        }) }}
 
+              {{ button({
+                      text: "Continue"
+                     
+                    }) }}
       </form>
     </div>
   </div>
