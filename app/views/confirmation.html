@@ -16,13 +16,14 @@
 
       <h2 class="nhsuk-heading-m">Your order details</h2>
 
-      {% set siteLocationHtml %}
-        St George's Pharmacy<br>
-        46 St George's Rd<br>
-        Elephant and Castle<br>
-        London<br>
-        SE1 6ET
+    {% set addressHtml %}
+        {{ data.addressLine1 }}<br>
+        {{ data.addressLine2 }}<br>
+        {{ data.addressTown }}<br>
+        {{ data.addressCounty }}<br>
+        {{ data.addressPostcode }}<br>
       {% endset %}
+
 
       {{ summaryList({
         classes: "nhsuk-summary-list--no-border",
@@ -32,7 +33,7 @@
               text: "Delivery address"
             },
             value: {
-              html: siteLocationHtml
+              html: addressHtml
             }
           }
         ]
