@@ -5,7 +5,7 @@
 
 {% block beforeContent %}
   {{ backLink({
-    href: "/details",
+    href: "/address",
     text: "Back"
   }) }}
 {% endblock %}
@@ -14,7 +14,15 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <h1 class="nhsuk-heading-l">Check your answers before sending your application</h1>
+      <h1 class="nhsuk-heading-l">Check your answers</h1>
+
+      {% set addressHtml %}
+        {{ data.addressLine1 }}<br>
+        {{ data.addressLine2 }}<br>
+        {{ data.addressTown }}<br>
+        {{ data.addressCounty }}<br>
+        {{ data.addressPostcode }}<br>
+      {% endset %}
 
       {{ summaryList({
         rows: [
@@ -51,6 +59,23 @@
                 }
               ]
             }
+          },
+          {
+            key: {
+              text: "Delivery address"
+            },
+            value: {
+              html: addressHtml
+            },
+            actions: {
+              items: [
+                {
+                  href: "/address",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
           }
         ]
       }) }}
@@ -59,13 +84,7 @@
 
       
 
-      <h2 class="nhsuk-heading-m">
-        Now send your application
-      </h2>
 
-      <p>
-        Your details will be sent to Rose Medical Practice to begin your registration.
-      </p>
 
       <form action="/confirmation" method="post" novalidate>
         {{ button({
