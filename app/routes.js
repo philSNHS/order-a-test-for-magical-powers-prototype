@@ -10,11 +10,20 @@ router.post('/magical-powers-answer', (req, res) => {
   // Make a variable and give it the value from 'nhsNumberKnown'
   const doYouHaveSymptoms = req.session.data.doYouHaveSymptoms
 
+const details = req.session.data.details
+
   // Check whether the variable matches a condition
   if (doYouHaveSymptoms === 'Yes') {
 
     // Send user to a page where they’ll enter their NHS number
-    res.redirect('/details')
+if (details != "") {
+res.redirect('/check-answers')
+} else { 
+  res.redirect('/details')
+
+
+}
+
 
   } else if (doYouHaveSymptoms === 'No') {
 
