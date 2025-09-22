@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% from 'breadcrumb/macro.njk' import breadcrumb %}
+{% from 'button/macro.njk' import button %}
+
+{% set mainClasses = "nhsuk-main-wrapper--s" %}
+
+{% block beforeContent %}
+  {{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      },
+      {
+        href: "#",
+        text: "Section"
+      }
+    ],
+    href: "#",
+    text: "Subsection"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>{{ serviceName }}</h1>
+      <p>Use this service to order a test to find out if you have magical powers.</p>
+      <p>You can use this service if you:</p>
+      <ul>
+        <li>live in England</li>
+        <li>think you have symptoms of magical powers</li>
+      </ul>
+
+{% from 'details/macro.njk' import details %}
+
+{% call details({
+  summaryText: "Typical magical power symptoms"
+}) %}
+  <ul>
+    <li>Unexpectedly flying</li>
+    <li>becoming invisible</li>
+    <li>running at the speed of light</li>
+  </ul>
+{% endcall %}
+
+      <h2>Before you start</h2>
+
+      <p>We'll ask you if you have symptoms of magical powers</p>
+
+      {{ button({
+        text: "Start now",
+        href: "/magical-powers"
+      }) }}
+
+      <p>By using this service you are agreeing to our <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</p>
+
+    </div>
+  </div>
+{% endblock %}
