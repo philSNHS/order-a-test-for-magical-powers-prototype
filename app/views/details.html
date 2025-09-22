@@ -15,15 +15,16 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-      <form action="/form-handler" method="post" novalidate>
+      <form action="/check-answers" method="post" novalidate>
             {% from 'textarea/macro.njk' import textarea %}
 
             {{ textarea({
-              name: "example",
-              id: "example",
+              name: "details",
+              id: "details",
               label: {
                 text: "Can you provide more detail of your symptoms?"
               },
+              value: data.details,
               hint: {
                 text: "Do not include personal information like your name, date of birth or NHS number"
               }

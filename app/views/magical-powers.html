@@ -18,7 +18,7 @@
       <form action="/details" method="post" novalidate>
 
         {{ radios({
-          name: "whereDoYouLive",
+          name: "doYouHaveSymptoms",
           fieldset: {
             legend: {
               text: "Do you have symptoms of magical powers?",
@@ -29,6 +29,7 @@
           hint: {
                 text: "e.g. flying, disappearing, running at the speed of light"
             },
+          value: data.doYouHaveSymptoms,
           items: [
             {
               value: "Yes",
